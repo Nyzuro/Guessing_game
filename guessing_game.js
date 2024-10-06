@@ -26,10 +26,12 @@ function ask_nb() {
 ask_nb();
 
 function check_nb() {
-  if (!parseInt(nb_find)) {
+  const has_letter = /[a-zA-z!-/:-@[-~]/.test(nb_find);
+  if (has_letter) {
     console.log(yellow + "Ecrivez un nombre s'il vous plait." + reset_yellow);
     return ask_nb();
   }
+
   if (nb_find != nb_to_find) {
     if (nb_find > 100) {
       console.log(
